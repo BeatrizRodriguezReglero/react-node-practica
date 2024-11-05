@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const usersRoutes = require('./routes/users.routes');
 
 // Rutas
 
@@ -14,7 +15,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.use(express.json());
-
+app.use('/api/users', usersRoutes);
 // Uso de rutas
 
 app.listen(3000, () => console.log('Servidor en ejecución en el puerto 3000'));

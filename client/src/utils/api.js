@@ -7,7 +7,7 @@ export const getData = async url => {
   return data;
 };
 
-export const postData = async (url, body = {}) => {
+export const postData = async (url, body) => {
   const data = await fetchData(url, {
     method: METHODS.POST,
     body: JSON.stringify(body),
@@ -17,9 +17,10 @@ export const postData = async (url, body = {}) => {
   return data;
 };
 
-export const patchData = async url => {
+export const patchData = async (url, body) => {
   const data = await fetchData(url, {
     method: METHODS.PATCH,
+    body: JSON.stringify(body),
     headers: HEADERS
   });
 
@@ -27,10 +28,10 @@ export const patchData = async url => {
 };
 
 export const deleteData = async url => {
+  console.log('URL para DELETE:', url); // Verifica que la URL sea correcta antes de hacer la llamada
   const data = await fetchData(url, {
     method: METHODS.DELETE,
     headers: HEADERS
   });
-
   return data;
 };
